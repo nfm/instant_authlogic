@@ -1,0 +1,13 @@
+- title 'Manage user accounts'
+
+%h3 Users
+= link_to 'Create new user', new_user_path
+%hr
+
+%table
+  %tr
+    %th Name
+    %th Email
+    %th Signup date
+    %th
+  = render :partial => 'users/summary', :collection => @users, :as => :user

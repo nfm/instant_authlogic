@@ -1,0 +1,10 @@
+%tr
+  %td= user.full_name
+  %td= user.email
+  %td= user.created_at
+  %td
+    = link_to 'Show', user_path(user)
+    |
+    = link_to 'Edit', edit_user_path(user)
+    |
+    = link_to 'Delete', user_path(user), :method => :delete, :confirm => "Are you sure you want to permanently delete this user?"

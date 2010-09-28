@@ -1,0 +1,12 @@
+%h2 Log in
+
+- form_for @user_session do |f|
+  = f.label :email, 'Email address'
+  = f.text_field :email
+  %br
+
+  = f.label :password, 'Password'
+  = f.password_field :password
+  %br
+
+  = f.submit "Continue"
