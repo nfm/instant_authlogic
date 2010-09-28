@@ -1,3 +1,4 @@
+=begin
 puts "Copying files..."
 
 src_dir = File.join(File.dirname(__FILE__), "lib", "installed_files")
@@ -18,6 +19,7 @@ FileUtils.copy(File.join(src_dir, "models", "user_session.rb"), "#{rails_dir}/ap
 
 # Install new views
 FileUtils.cp_r(File.join(src_dir, "views", "users/"), "#{rails_dir}/app/views/")
+FileUtils.cp_r(File.join(src_dir, "views", "user_sessions/"), "#{rails_dir}/app/views/")
 
 # Install create_users migration, and timestamp it to order migrations correctly
 timestamp = Time.now.strftime('%Y%m%d%H%M%S')
@@ -43,3 +45,4 @@ else
   puts "Copy the following lines into config/routes.rb:"
   `cat #{File.join(src_dir, "config", "routes.rb")}`
 end
+=end
