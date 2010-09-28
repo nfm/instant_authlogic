@@ -43,9 +43,4 @@ class UsersController < ApplicationController
       render :action => :index
     end
   end
-
-protected
-  def get_user
-    @user = User.find(params[:id])
-  end
 end
