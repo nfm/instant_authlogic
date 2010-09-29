@@ -28,7 +28,7 @@ namespace :instant_authlogic do
 
 		# Install create_users migration, and timestamp it to order migrations correctly
 		puts "Installing migration..."
-		timestamp = Time.now.strftime('%Y%m%d%H%M%S')
+		timestamp = Time.now.utc.strftime('%Y%m%d%H%M%S')
 		FileUtils.copy(File.join(src_dir, "migrate", "create_users.rb"), "#{rails_dir}/db/migrate/#{timestamp}_create_users.rb")
 
 		# Optionally overwrite application_controller.rb and routes.rb
