@@ -3,7 +3,8 @@ class UserSessionsController < ApplicationController
 
   def new
     if current_user
-      redirect_to root_path, :notice => "You are already logged in"
+			page = session[:current_page] ? session[:current_page] : root_path
+      redirect_to page, :notice => "You are already logged in"
     else
       @user_session = UserSession.new
       render :action => :new
