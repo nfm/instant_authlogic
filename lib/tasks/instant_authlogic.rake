@@ -54,6 +54,11 @@ namespace :instant_authlogic do
       puts
 		end
 
+		# Tell the user to require the authlogic gem in config/environment.rb
+		puts "Add the following line to config/environment.rb:"
+		puts "  config.gem 'authlogic', :version => '2.1.15'"
+		puts
+
 	end
 end
 
