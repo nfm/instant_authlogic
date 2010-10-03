@@ -19,7 +19,7 @@ private
 
   def require_user
     unless current_user
-			session[:previous_page] = request.request_uri
+			session[:previous_page] = request.request_uri unless request.request_uri == login_path
       redirect_to login_path, :notice => 'Log in to access your account'
       return false
     end

@@ -1,6 +1,6 @@
 %h2 Log in
 
-- form_for @user_session do |f|
+- form_for @user_session, :url => login_path do |f|
   = f.label :email, 'Email address'
   = f.text_field :email
   %br

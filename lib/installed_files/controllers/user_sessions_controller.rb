@@ -3,7 +3,7 @@ class UserSessionsController < ApplicationController
 
   def new
     if current_user
-			page = session[:current_page] ? session[:current_page] : root_path
+			page = session[:previous_page] ? session[:previous_page] : root_path
       redirect_to page, :notice => "You are already logged in"
     else
       @user_session = UserSession.new
@@ -14,7 +14,9 @@ class UserSessionsController < ApplicationController
   def create
     @user_session = UserSession.create(params[:user_session])
     if @user_session.save
-      redirect_to root_url, :notice => "Welcome back, #{current_user}"
+			page = session[:previous_page] ? session[:previous_page] : root_path
+			session[:previous_page] = nil
+      redirect_to page, :notice => "Welcome back, #{current_user}"
     else
       flash[:error] = "Invalid username/password combination"
       render :action => :new
